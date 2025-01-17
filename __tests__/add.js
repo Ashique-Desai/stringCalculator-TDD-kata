@@ -21,3 +21,7 @@ test('should return the sum of any number of numbers separated by a comma', () =
 test('should handle newlines between numbers as delimiters', () => {
     expect(add('1\n2,3')).toBe(6);
 });
+
+test('should handle changed delimiter: ;', () => {
+    expect(add('//;\n1;2')).toBe(3);
+});
