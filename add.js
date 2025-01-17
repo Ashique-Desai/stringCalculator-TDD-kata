@@ -9,12 +9,17 @@
 
 
 const add = (inputString) => {
+    let delimiter = ","
     // check for custom delimiter // at start and remove it
     if (inputString.startsWith('//')) {
+        // Extract custom delimiter starting from index 2 (after `//`)
+        const delimiterEndIndex = inputString.indexOf('\n');
+        delimiter = inputString.slice(2, delimiterEndIndex);
         inputString = inputString.slice(2);
+        console.log({ delimiter })
     }
     // split the string by commas, newLines or semicolons and convert each part to a number
-    const numbers = inputString.split(/,|\n|;/).map(Number);
+    const numbers = inputString.split(new RegExp(`\n|${delimiter}`)).map(Number);
 
     const negativeNumbers = numbers.filter((number) => number < 0)
 
