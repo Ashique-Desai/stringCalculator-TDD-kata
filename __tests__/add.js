@@ -29,22 +29,30 @@ test('should handle changed delimiter: ;', () => {
 });
 
 test('should throw an exception for negative numbers', () => {
-    try {
-        add('//;\n-1;2');
-    } catch (e) {
-        expect(e.message).toBe('negative numbers not allowed -1');
-    }
-
-    try {
-        add('1,-2');
-    } catch (e) {
-        expect(e.message).toBe('negative numbers not allowed -2');
-    }
-
-    try {
-        add('1,-2, 3, 4, -5, 6');
-    } catch (e) {
-        expect(e.message).toBe('negative numbers not allowed -2, -5');
-    }
+    expect(() => add('//;\n-1;2')).toThrow('negative numbers not allowed -1');
+    expect(() => add('1,-2')).toThrow('negative numbers not allowed -2');
+    expect(() => add('1,-2, 3, 4, -5, 6')).toThrow('negative numbers not allowed -2, -5');
 });
+
+// The below test is incorrect as it will never go to catch block if the code responsible for checking negative nums is removed
+
+// test('should throw an exception for negative numbers', () => {
+//     try {
+//         add('//;\n-1;2');
+//     } catch (e) {
+//         expect(e.message).toBe('negative numbers not allowed -1');
+//     }
+
+//     try {
+//         add('1,-2');
+//     } catch (e) {
+//         expect(e.message).toBe('negative numbers not allowed -2');
+//     }
+
+//     try {
+//         add('1,-2, 3, 4, -5, 6');
+//     } catch (e) {
+//         expect(e.message).toBe('negative numbers not allowed -2, -5');
+//     }
+// });
 
