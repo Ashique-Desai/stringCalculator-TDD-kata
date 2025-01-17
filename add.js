@@ -1,3 +1,13 @@
+/**
+ * Adds numbers from a given input string, handles different delimiters, 
+ * does not allow negative numbers.
+ *
+ * @param {string} inputString - The string of numbers to be summed.
+ * @returns {number} The sum of the numbers in the input string.
+ * @throws {Error} Throws an error if negative numbers are found.
+ */
+
+
 const add = (inputString) => {
     // check for custom delimiter // at start and remove it
     if (inputString.startsWith('//')) {
