@@ -1,13 +1,12 @@
 const add = (inputString) => {
-    console.log({ inputString })
+    // check for custom delimiter at start
     if (inputString.startsWith('//')) {
-        console.log('Yes starts with //')
-        inputString = inputString.slice(2)
+        inputString = inputString.slice(2);
     }
-    const processNewLineAndComma = inputString.split(/,|\n|;/).map(Number)
-    console.log({ processNewLineAndComma })
-    const add = processNewLineAndComma.reduce((a, b) => a + b, 0);
-    return add
+    // split the string by commas, newLines or semicolons and convert each part to a number
+    const numbers = inputString.split(/,|\n|;/).map(Number);
+    const sum = numbers.reduce((a, b) => a + b, 0);
+    return sum
 };
 
 module.exports = add;
