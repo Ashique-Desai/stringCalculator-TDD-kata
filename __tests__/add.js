@@ -25,3 +25,9 @@ test('should handle newlines between numbers as delimiters', () => {
 test('should handle changed delimiter: ;', () => {
     expect(add('//;\n1;2')).toBe(3);
 });
+
+test('should throw an exception for negative numbers', () => {
+    expect(add('//;\n-1;2')).toThrow('negative numbers not allowed -1');
+    expect(add('1,-2')).toThrow('negative numbers not allowed -2');
+    expect(add('1,-2, 3, 4, -5, 6')).toThrow('negative numbers not allowed -2, -5');
+});
