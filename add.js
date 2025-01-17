@@ -6,17 +6,14 @@
  * @returns {number} The sum of the numbers in the input string.
  * @throws {Error} Throws an error if negative numbers are found.
  */
-
-
 const add = (inputString) => {
     let delimiter = ","
-    // check for custom delimiter // at start and remove it
+    // check for "//"" at start of input and get custom delimiter (ex: ; or :), remove "//"" from inputString
     if (inputString.startsWith('//')) {
         // Extract custom delimiter starting from index 2 (after `//`)
         const delimiterEndIndex = inputString.indexOf('\n');
         delimiter = inputString.slice(2, delimiterEndIndex);
         inputString = inputString.slice(2);
-        console.log({ delimiter })
     }
     // split the string by commas, newLines or semicolons and convert each part to a number
     const numbers = inputString.split(new RegExp(`\n|${delimiter}`)).map(Number);
