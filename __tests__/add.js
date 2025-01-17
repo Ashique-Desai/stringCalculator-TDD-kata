@@ -46,8 +46,3 @@ test('should throw an exception for negative numbers', () => {
     }
 });
 
-// test('should throw an exception for negative numbers', () => {
-//     expect(add('//;\n-1;2')).toThrow('negative numbers not allowed -1');
-//     expect(add('1,-2')).toThrow('negative numbers not allowed -2');
-//     expect(add('1,-2, 3, 4, -5, 6')).toThrow('negative numbers not allowed -2, -5');
-// });
